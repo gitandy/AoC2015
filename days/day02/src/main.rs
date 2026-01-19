@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::Read;
 
 fn main() {
-    let input = File::open("data/input.txt");
+    let input = File::open("days/day02/data/input.txt");
     let mut buffer = String::new();
     input
         .unwrap()

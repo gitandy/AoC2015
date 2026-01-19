@@ -2,9 +2,12 @@ use std::fs::File;
 use std::io::Read;
 
 fn main() {
-    let input = File::open("data/input.txt");
+    let input = File::open("days/day01/data/input.txt");
     let mut buffer = String::new();
-    input.unwrap().read_to_string(&mut buffer).expect("Couldn't read input file");
+    input
+        .unwrap()
+        .read_to_string(&mut buffer)
+        .expect("Couldn't read input file");
 
     let floor = eval_floor(&buffer);
     println!("Calculated floor #{floor}");
@@ -26,7 +29,7 @@ fn eval_floor(buffer: &String) -> i32 {
     floor
 }
 
-fn first_basement(buffer: &String) -> u32{
+fn first_basement(buffer: &String) -> u32 {
     let mut floor = 0;
     let mut char_count = 0;
 
@@ -46,7 +49,6 @@ fn first_basement(buffer: &String) -> u32{
 
     char_count
 }
-
 
 #[cfg(test)]
 mod tests {

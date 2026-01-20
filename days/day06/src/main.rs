@@ -1,5 +1,5 @@
 use regex::Regex;
-use util::read_input;
+use util::{Part, get_part, read_input};
 
 #[derive(Debug, PartialEq)]
 struct Point {
@@ -18,19 +18,18 @@ const PATTERN: &str = r"([a-z ]+) (\d+),(\d+) through (\d+),(\d+)";
 
 fn main() {
     let input = read_input("days/day06/data/input.txt");
-
-    let brightness = false;
+    let brightness = get_part() == Part::Two;
 
     let mut matrix = vec![vec![0u8; 1000]; 1000];
     decorate(input, &mut matrix, brightness);
 
     if brightness {
         println!(
-            "Lights lit up with #{} brightness",
+            "Part 2: Lights lit up with #{} brightness",
             calc_brightness(&matrix)
         );
     } else {
-        println!("Lights lit up #{}", calc_lit_up(&matrix));
+        println!("Part 1: Lights lit up #{}", calc_lit_up(&matrix));
     }
 }
 
